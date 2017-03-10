@@ -193,7 +193,7 @@
        
         NSURL *movieURL = [NSURL fileURLWithPath:self.fileSavePath];
         
-        _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(WIDTH, WIDTH*744/720-30)];
+        _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(WIDTH, HEIGHT-200)];//视频存放路径及输出视频宽高
         
         [_pixellateFilter addTarget:_movieWriter];
         
@@ -319,7 +319,7 @@
     //判断视频存放文件夹是否存在，不存在创建
     BOOL blHave1=[[NSFileManager defaultManager] fileExistsAtPath:createPath2];
     if (!blHave1) {
-        [fileManager createDirectoryAtPath:createPath withIntermediateDirectories:YES attributes:nil error:nil];
+        [fileManager createDirectoryAtPath:createPath2 withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
     _fileSavePath = createPath;
